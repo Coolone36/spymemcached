@@ -55,6 +55,7 @@ import net.spy.memcached.ops.StatsOperation.Callback;
 import net.spy.memcached.ops.StoreOperation;
 import net.spy.memcached.ops.StoreType;
 import net.spy.memcached.ops.TapOperation;
+import net.spy.memcached.ops.TouchOperation;
 import net.spy.memcached.ops.UnlockOperation;
 import net.spy.memcached.ops.VersionOperation;
 import net.spy.memcached.tapmessage.RequestMessage;
@@ -127,8 +128,7 @@ public class AsciiOperationFactory extends BaseOperationFactory {
 
   public KeyedOperation touch(String key, int expiration,
       OperationCallback cb) {
-    throw new UnsupportedOperationException("Touch is not supported for "
-        + "ASCII protocol");
+    return new TouchOperationImpl(key, expiration, cb);
   }
 
   public VersionOperation version(OperationCallback cb) {
