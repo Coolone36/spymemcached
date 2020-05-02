@@ -78,7 +78,7 @@ public final class StringUtils {
       for (byte b : keyBytes) {
         if (b == ' ' || b == '\n' || b == '\r' || b == 0) {
           throw new IllegalArgumentException(
-              "Key contains invalid characters:  ``" + key + "''");
+              "Key contains invalid characters:  ''" + key + "''");
         }
       }
     }
